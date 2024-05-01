@@ -18,14 +18,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.roman.commons.controller.CommonController;
 import com.roman.usuario.entity.Alumno;
 import com.roman.usuario.service.AlumnoService;
 
 @RestController
-public class AlumnoController {
+public class AlumnoController extends CommonController<Alumno, AlumnoService> {
 
-	@Autowired
-	AlumnoService alumnoService;
 	
 	@Value("${config.balanceador.test}")
 	private String balanceadorTest;
@@ -35,30 +34,16 @@ public class AlumnoController {
 	public ResponseEntity<?> balanceadorTest(){
 		Map<String, Object> response = new HashMap<String, Object>(); 
 		response.put("balanceador", balanceadorTest);
-		response.put("alumno", alumnoService.findAll());
+		response.put("alumno", service.findAll());
 	
 		return ResponseEntity.ok().body(response);
 	}
 	
-	@GetMapping
-	public ResponseEntity<?> listarAlumno() {
-		return ResponseEntity.ok().body(alumnoService.findAll());
-	}
-
-	public ResponseEntity<?> ver(@PathVariable Long id) {
-		Optional<Alumno> ob = alumnoService.findById(id);
-
-		if (ob.isEmpty()) {
-			return ResponseEntity.noContent().build();
-		}
-
-		return ResponseEntity.ok().body(ob.get());
-	}
 	
 	@PutMapping("/{id}")
 	public ResponseEntity<?> editar(@RequestBody Alumno alumno, @PathVariable Long id) {
         
-		Optional<Alumno> ob = alumnoService.findById(id);
+		Optional<Alumno> ob = service.findById(id);
 
         if (ob.isEmpty()) {
             return ResponseEntity.noContent().build();
@@ -69,12 +54,7 @@ public class AlumnoController {
         alumnoBd.setApellido(alumno.getApellido());
         alumnoBd.setEmail(alumno.getEmail());
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(alumnoService.save(alumnoBd));
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.save(alumnoBd));
     }
 	
-	@DeleteMapping("/{id}")
-    public ResponseEntity<?> eliminar(@PathVariable Long id) {
-        alumnoService.deleteById(id);
-        return ResponseEntity.noContent().build();
-    }
 }
