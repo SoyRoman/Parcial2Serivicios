@@ -12,7 +12,7 @@
 	<artifactId>MicroservicioSpringGateway</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>MicroservicioSpringGateway</name>
-	<description>Demo project for Spring Boot</description>
+	<description>taller3</description>
 	<properties>
 		<java.version>17</java.version>
 		<spring-cloud.version>2023.0.1</spring-cloud.version>

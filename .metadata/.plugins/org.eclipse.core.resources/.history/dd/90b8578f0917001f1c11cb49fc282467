@@ -1,0 +1,8 @@
+package com.roman.examenes.service;
+
+import com.gonzalez.commons.service.CommonService;
+import com.roman.common.usuario.models.entity.Pregunta;
+
+public interface PreguntaService extends CommonService<Pregunta> {
+
+}

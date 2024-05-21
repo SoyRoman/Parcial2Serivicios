@@ -8,11 +8,11 @@
 		<version>3.2.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.roman.curso</groupId>
+	<groupId>com.gonzalez.curso</groupId>
 	<artifactId>MicroservicioSpringCurso</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>MicroservicioSpringCurso</name>
-	<description>Demo project for Spring Boot</description>
+	<description>parcial2</description>
 	<properties>
 		<java.version>17</java.version>
 		<spring-cloud.version>2023.0.1</spring-cloud.version>
@@ -22,6 +22,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
@@ -33,21 +39,31 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
 		<dependency>
-			<groupId>com.roman.gateway</groupId>
+			<groupId>com.gonzalez.commons</groupId>
 			<artifactId>MicroservicioSpringCommons</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.gonzalez.common.usuario</groupId>
+			<artifactId>MicroservicioCommonsService</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -58,13 +74,9 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-			<dependency>
-		<groupId>com.roman.commons</groupId>
-		<artifactId>MicroservicioSpringCommons</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
 	<build>
 		<plugins>
 			<plugin>

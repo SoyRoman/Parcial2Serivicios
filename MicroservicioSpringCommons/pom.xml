@@ -8,11 +8,11 @@
 		<version>3.2.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.roman.gateway</groupId>
+	<groupId>com.roman.commons</groupId>
 	<artifactId>MicroservicioSpringCommons</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>MicroservicioSpringCommons</name>
-	<description>Demo project for Spring Boot</description>
+	<description>taller3</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -38,7 +38,5 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
-	
 
 </project>
